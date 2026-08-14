@@ -1,0 +1,195 @@
+{
+    "application": {
+        "dpctl": "",
+        "ipBase": "10.0.0.0/8",
+        "netflow": {
+            "nflowAddId": "0",
+            "nflowTarget": "",
+            "nflowTimeout": "600"
+        },
+        "openFlowVersions": {
+            "ovsOf10": "0",
+            "ovsOf11": "0",
+            "ovsOf12": "0",
+            "ovsOf13": "1"
+        },
+        "sflow": {
+            "sflowHeader": "128",
+            "sflowPolling": "30",
+            "sflowSampling": "400",
+            "sflowTarget": ""
+        },
+        "startCLI": "1",
+        "switchType": "ovs",
+        "terminalType": "xterm"
+    },
+    "controllers": [
+        {
+            "opts": {
+                "controllerProtocol": "tcp",
+                "controllerType": "remote",
+                "hostname": "c0",
+                "remoteIP": "127.0.0.1",
+                "remotePort": 6653
+            },
+            "x": "404.0",
+            "y": "61.0"
+        }
+    ],
+    "hosts": [
+        {
+            "number": "0",
+            "opts": {
+                "dimage": "sdwan-node:latest",
+                "hostname": "d1",
+                "ip": "10.0.0.1/24",
+                "nodeNum": 0,
+                "nodeType": "Docker",
+                "startCommand": "/bin/bash"
+            },
+            "x": "195.0",
+            "y": "213.0"
+        },
+        {
+            "number": "0",
+            "opts": {
+                "dimage": "sdwan-node:latest",
+                "hostname": "d2",
+                "ip": "10.0.0.2/24",
+                "nodeNum": 0,
+                "nodeType": "Docker",
+                "startCommand": "/bin/bash"
+            },
+            "x": "684.0",
+            "y": "219.0"
+        },
+        {
+            "number": "0",
+            "opts": {
+                "dimage": "sdwan-node:latest",
+                "hostname": "d3",
+                "ip": "10.0.0.3/24",
+                "nodeNum": 0,
+                "nodeType": "Docker",
+                "startCommand": "/bin/bash"
+            },
+            "x": "637.0",
+            "y": "379.0"
+        },
+        {
+            "number": "0",
+            "opts": {
+                "dimage": "sdwan-node:latest",
+                "hostname": "d4",
+                "ip": "10.0.0.4/24",
+                "nodeNum": 0,
+                "nodeType": "Docker",
+                "startCommand": "/bin/bash"
+            },
+            "x": "179.0",
+            "y": "374.0"
+        }
+    ],
+    "links": [
+        {
+            "dest": "s2",
+            "opts": {},
+            "src": "s1"
+        },
+        {
+            "dest": "s3",
+            "opts": {},
+            "src": "s2"
+        },
+        {
+            "dest": "s4",
+            "opts": {},
+            "src": "s3"
+        },
+        {
+            "dest": "s1",
+            "opts": {},
+            "src": "s4"
+        },
+        {
+            "dest": "s3",
+            "opts": {},
+            "src": "s1"
+        },
+        {
+            "dest": "d1",
+            "opts": {},
+            "src": "s1"
+        },
+        {
+            "dest": "d2",
+            "opts": {},
+            "src": "s2"
+        },
+        {
+            "dest": "d3",
+            "opts": {},
+            "src": "s3"
+        },
+        {
+            "dest": "d4",
+            "opts": {},
+            "src": "s4"
+        }
+    ],
+    "switches": [
+        {
+            "number": "1",
+            "opts": {
+                "controllers": [
+                    "c0"
+                ],
+                "hostname": "s1",
+                "nodeNum": 1,
+                "switchType": "default"
+            },
+            "x": "312.0",
+            "y": "227.0"
+        },
+        {
+            "number": "2",
+            "opts": {
+                "controllers": [
+                    "c0"
+                ],
+                "hostname": "s2",
+                "nodeNum": 2,
+                "switchType": "default"
+            },
+            "x": "506.0",
+            "y": "219.0"
+        },
+        {
+            "number": "3",
+            "opts": {
+                "controllers": [
+                    "c0"
+                ],
+                "hostname": "s3",
+                "nodeNum": 3,
+                "switchType": "default"
+            },
+            "x": "511.0",
+            "y": "367.0"
+        },
+        {
+            "number": "4",
+            "opts": {
+                "controllers": [
+                    "c0"
+                ],
+                "hostname": "s4",
+                "nodeNum": 4,
+                "switchType": "default"
+            },
+            "x": "327.0",
+            "y": "370.0"
+        }
+    ],
+    "version": "2"
+}
