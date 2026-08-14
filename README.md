@@ -194,8 +194,8 @@ on the default OpenFlow port (6653), with switches supporting OpenFlow 1.3.
 
 ### Step 2 — Start the Ryu controller with both apps
 ```bash
-ryu-manager controller/topology_aware_switch.py controller/link_metrics_app.py \
-    --observe-links
+ryu-manager --observe-links controller/topology_aware_switch.py  controller//link_metrics_app.py ryu.app.ofctl_rest ryu.app.rest_topology
+
 ```
 - Ryu's REST API (ofctl + topology) will run on port `8080`.
 - Link metrics (`link_*`) will be exposed at `http://localhost:9200/metrics`.
